@@ -1,0 +1,25 @@
+{
+  "name": "oura-ring-line-notify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mitsuoka0423/oura-ring-line-notify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mitsuoka0423/oura-ring-line-notify/issues"
+  },
+  "homepage": "https://github.com/mitsuoka0423/oura-ring-line-notify#readme",
+  "dependencies": {
+    "date-fns": "^2.28.0",
+    "line-notify-nodejs": "^1.0.0",
+    "oura-api-v2-client": "^1.0.0"
+  }
+}
