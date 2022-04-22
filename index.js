@@ -2,6 +2,7 @@ const LineNotify = require('line-notify-nodejs');
 const Oura = require('oura-api-v2-client');
 const format = require('date-fns/format');
 const add = require('date-fns/add');
+const utcToZonedTime = require('date-fns-tz/utcToZonedTime');
 
 if (!process.env.LINE_NOTIFY_TOKEN) throw new Error('LINE Notify token is required.');
 if (!process.env.OURA_API_TOKEN) throw new Error('Oura API token token is required.');
@@ -16,9 +17,9 @@ const main = async () => {
   console.log(latestBedEnd);
 
   // 眠くなる時間を計算する
-  const latestBedEndDate = new Date(latestBedEnd);
-  const sleepyTimeDate = add(latestBedEndDate, { hours: 8 });
-  const napTimeDate = add(latestBedEndDate, { hours: 6 });
+  const latestBedEndDate = utcToZonedTime(new Date(latestBedEnd), 'Asia/Tokyo');
+  const sleepyTimeDate = utcToZonedTime(add(latestBedEndDate, { hours: 8 }), 'Asia/Tokyo');
+  const napTimeDate = utcToZonedTime(add(latestBedEndDate, { hours: 6 }), 'Asia/Tokyo');
 
   // LINE Notifyで通知する
   await lineNotify.notify({
