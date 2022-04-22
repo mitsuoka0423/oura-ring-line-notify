@@ -18,8 +18,8 @@ const main = async () => {
 
   // 眠くなる時間を計算する
   const latestBedEndDate = utcToZonedTime(new Date(latestBedEnd), 'Asia/Tokyo');
-  const sleepyTimeDate = utcToZonedTime(add(latestBedEndDate, { hours: 8 }), 'Asia/Tokyo');
-  const napTimeDate = utcToZonedTime(add(latestBedEndDate, { hours: 6 }), 'Asia/Tokyo');
+  const sleepyTimeDate = add(latestBedEndDate, { hours: 8 });
+  const napTimeDate = add(latestBedEndDate, { hours: 6 });
 
   // LINE Notifyで通知する
   await lineNotify.notify({
